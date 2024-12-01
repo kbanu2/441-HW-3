@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package bedrock;
+
+service BedrockService {
+    rpc GenerateText (GenerateTextRequest) returns (GenerateTextResponse);
+}
+
+message GenerateTextRequest {
+    string prompt = 1;
+}
+
+message GenerateTextResponse {
+    string generated_text = 1;
+}
