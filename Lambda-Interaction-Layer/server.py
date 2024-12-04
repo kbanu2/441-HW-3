@@ -57,15 +57,16 @@ def serve():
 
 
 if __name__ == "__main__":
-    # Check if credentials are provided in the environment variables
-    aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
-    aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
-    aws_session_token = os.getenv('AWS_SESSION_TOKEN')  # Optional, if using temporary credentials
+    os.environ['AWS_SHARED_CREDENTIALS_FILE'] = '.aws/credentials'
+    session = boto3.Session()
+    credentials = session.get_credentials()
+
+    aws_access_key_id = credentials.access_key
+    aws_secret_access_key = credentials.secret_key
 
     if aws_access_key_id and aws_secret_access_key:
         print("Using environment variables for AWS credentials.")
     else:
         print("No environment AWS credentials found. Using default AWS profile or IAM roles.")
 
-    # Start the server
     serve()

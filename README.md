@@ -1,3 +1,5 @@
+https://youtu.be/1-3o7o350Zo
+
 # REST API with Scala & gRPC Integration to AWS Lambda (Bedrock Model)
 This project sets up a RESTful API in Scala that communicates with a Python-based gRPC server, which in turn interacts with an AWS Lambda function that queries the Bedrock model for generating text. Below is a guide on how to use and configure the project.
 

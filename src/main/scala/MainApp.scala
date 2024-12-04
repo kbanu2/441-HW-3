@@ -58,7 +58,7 @@ object MainApp {
     implicit val ec: ExecutionContext = system.dispatcher
 
     // Create a gRPC channel to the Python gRPC server
-    val channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build()
+    val channel = ManagedChannelBuilder.forAddress("localhost", 50052).usePlaintext().build()
     val grpcClient = BedrockServiceGrpc.stub(channel)
 
     // Create the MainApp instance, passing the gRPC client
